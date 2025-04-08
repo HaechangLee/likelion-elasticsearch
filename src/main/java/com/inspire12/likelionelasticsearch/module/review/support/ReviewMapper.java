@@ -11,28 +11,27 @@ public class ReviewMapper {
     public static Review fromRequest(ReviewRequest request) {
         return Review.builder()
                 .orderId(request.getOrderId())
+                .rating(request.getRating())
+                .review(request.getReview())
                 .storeId(request.getStoreId())
                 .customerId(request.getCustomerId())
-                .review(request.getReview())
-                .rating(request.getRating())
                 .build();
     }
 
     public static ReviewDocument toEntity(Review review) {
 
-        ReviewDocument document = ReviewDocument.builder()
+        // TODO
+        return ReviewDocument.builder()
                 .orderId(review.getOrderId())
+                .rating(review.getRating())
+                .content(review.getReview())
                 .storeId(review.getStoreId())
                 .customerId(review.getCustomerId())
-                .content(review.getReview())
-                .rating(review.getRating())
-                .sentiment("긍정")
                 .build();
-
-        return document;
     }
 
     public static Review fromDocument(ReviewDocument reviewDocument) {
+        // TODO
         return Review.builder()
 
                 .orderId(reviewDocument.getOrderId())
