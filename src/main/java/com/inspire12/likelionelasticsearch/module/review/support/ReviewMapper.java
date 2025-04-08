@@ -5,6 +5,8 @@ import com.inspire12.likelionelasticsearch.module.review.application.dto.respons
 import com.inspire12.likelionelasticsearch.module.review.domain.Review;
 import com.inspire12.likelionelasticsearch.module.review.infrastructure.document.ReviewDocument;
 
+import java.time.LocalDateTime;
+
 public class ReviewMapper {
     private ReviewMapper() {}
 
@@ -15,6 +17,9 @@ public class ReviewMapper {
                 .review(request.getReview())
                 .storeId(request.getStoreId())
                 .customerId(request.getCustomerId())
+                .sentiment(request.getSentiment())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
                 .build();
     }
 
@@ -27,18 +32,23 @@ public class ReviewMapper {
                 .content(review.getReview())
                 .storeId(review.getStoreId())
                 .customerId(review.getCustomerId())
+                .sentiment(review.getSentiment())
+                .createdAt(review.getCreatedAt())
+                .updatedAt(review.getUpdatedAt())
                 .build();
     }
 
     public static Review fromDocument(ReviewDocument reviewDocument) {
         // TODO
         return Review.builder()
-
                 .orderId(reviewDocument.getOrderId())
                 .rating(reviewDocument.getRating())
                 .review(reviewDocument.getContent())
                 .storeId(reviewDocument.getStoreId())
                 .customerId(reviewDocument.getCustomerId())
+                .sentiment(reviewDocument.getSentiment())
+                .createdAt(reviewDocument.getCreatedAt())
+                .updatedAt(reviewDocument.getUpdatedAt())
                 .build();
     }
 
@@ -49,6 +59,9 @@ public class ReviewMapper {
                 .review(review.getReview())
                 .storeId(review.getStoreId())
                 .customerId(review.getCustomerId())
+                .sentiment(review.getSentiment())
+                .createdAt(review.getCreatedAt())
+                .updatedAt(review.getUpdatedAt())
                 .build();
     }
 }

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Builder
 @NoArgsConstructor
@@ -15,4 +17,7 @@ public class ReviewResponse {
     private Long orderId;
     private Long storeId;
     private Integer rating;
+    private String sentiment;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

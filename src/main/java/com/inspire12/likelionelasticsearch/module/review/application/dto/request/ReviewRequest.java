@@ -13,4 +13,5 @@ public class ReviewRequest {
     private Long orderId;
     private Long storeId;
     private Integer rating;
+    private String sentiment;
 }
