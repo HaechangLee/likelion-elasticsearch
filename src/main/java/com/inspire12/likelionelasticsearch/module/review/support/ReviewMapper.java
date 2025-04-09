@@ -5,6 +5,9 @@ import com.inspire12.likelionelasticsearch.module.review.application.dto.respons
 import com.inspire12.likelionelasticsearch.module.review.domain.Review;
 import com.inspire12.likelionelasticsearch.module.review.infrastructure.document.ReviewDocument;
 
+import java.time.LocalDateTime;
+import java.util.Map;
+
 public class ReviewMapper {
     private ReviewMapper() {}
 
@@ -34,7 +37,6 @@ public class ReviewMapper {
     public static Review fromDocument(ReviewDocument reviewDocument) {
         // TODO
         return Review.builder()
-
                 .orderId(reviewDocument.getOrderId())
                 .rating(reviewDocument.getRating())
                 .review(reviewDocument.getContent())
@@ -45,6 +47,7 @@ public class ReviewMapper {
     }
 
     public static ReviewResponse toResponse(Review review) {
+        // response도 dynamic filter로 받은 객체가 root에 위치하도록 옮기기
         return ReviewResponse.builder()
                 .orderId(review.getOrderId())
                 .rating(review.getRating())
