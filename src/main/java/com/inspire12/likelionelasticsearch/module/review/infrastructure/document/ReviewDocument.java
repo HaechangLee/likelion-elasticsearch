@@ -45,7 +45,7 @@ public class ReviewDocument {
     private String sentiment;
 
     @Field(type = FieldType.Date, format = DateFormat.date_hour_minute_second)
-    //@Field(type = FieldType.Date, format = {}, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    @Field(type = FieldType.Date, format = {}, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
 
     @Field(type = FieldType.Date, format = DateFormat.date_hour_minute_second)
